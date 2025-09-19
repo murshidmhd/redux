@@ -1,5 +1,5 @@
-const initialvalue = { count: 0 };
 const store = Redux.createStore(reducer);
+const initialvalue = { count: 0 };
 function reducer(prvState = initialvalue, action) {
   switch (action.type) {
     case "INCREMENT":
@@ -15,8 +15,8 @@ function reducer(prvState = initialvalue, action) {
 }
 
 function render() {
-  const state = store.getState();
-  document.getElementById("value").textContent = state.count;
+    const state = store.getState();
+    document.getElementById("value").textContent = state.count;
 }
 
 store.subscribe(render);
@@ -30,3 +30,6 @@ document.getElementById("decrement").onclick = () => {
 document.getElementById("reset").onclick = () => {
   store.dispatch({ type: "RESET" });
 };
+
+
+
