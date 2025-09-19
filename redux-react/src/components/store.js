@@ -1,4 +1,5 @@
 import { applyMiddleware, compose, createStore } from "redux";
+import { thunk } from "redux-thunk";
 
 const initialvalue = { count: 0 };
 function counterReducer(prvState = initialvalue, action) {
@@ -19,11 +20,10 @@ const logger = (store) => (next) => (action) => {
   return result;
 };
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   counterReducer,
-  composeEnhancers(applyMiddleware(logger))
+  composeEnhancers(applyMiddleware(thunk, logger))
 );
 
 export default store;
