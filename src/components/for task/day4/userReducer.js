@@ -24,3 +24,4 @@ const reduce = combineReducers({
 });
 
 export default reduce;
+
